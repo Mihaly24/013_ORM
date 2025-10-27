@@ -4,17 +4,17 @@ const PORT = 3000;
 const db = require('./models');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-''
+
 app.listen(PORT, () => {
     console.log('Server is running on port 3000');
 });
 
-db.sequelize.sync().then((result) => {
-    app.listen(3000, () => {
-        console.log(`Server started`);
+db.sequelize.sync()
+    .then((result) => {
+        app.listen(3000, () => {
+            console.log(`Server started`);
+        })
     })
     .catch((err) => {
         console.log(err);
     });
-});
-
